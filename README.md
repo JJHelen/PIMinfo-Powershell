@@ -9,7 +9,7 @@ Code results one or more csv files. That means some "extra info"
 -- Azure --> multiple csv with all info that is collected (separated files management groups, subscriptions and resource groups. Plus separated files direct Roles and direct+inherited roles (yes, bit overwhelming..)
 
 Requires Powershell AzureAD preview 2.0 (30.05.2022 - v2.0.2.149)
--- and remember because it is preview it can change
+-- and remember because it is preview it can change. And there is limitations (like API returns only 200 results, whitch is one reason for loops)
 
 There is still few things in code that are "under construction". So that explains few extra parameter reservations.
 
