@@ -15,6 +15,8 @@ There is still few things in code that are "under construction". So that explain
 
 And I know.. this code is not optimized + some parts of the code.. just bare with it..
 
+AzureAD is bit more straight forward, but getting Roles from Azure is bit more comlicated
+
 First of all.. dont get confused with different ID strings and names of those strings.
 
 Get-AzureADMSPrivilegedResource -ProviderId 'AzureResources'  -Filter $FindString 
@@ -28,3 +30,7 @@ Get-AzureADMSPrivilegedRoleDefinition -ProviderId 'AzureResources' -ResourceId $
 
 Get-AzureADObjectByObjectId -ObjectIds $RoleAssign.SubjectId
 #Gets more readable Roledefinition info from AzureAD based on Roleassignment SubjectID (AzureAD ObjectID)
+
+Resulting csv:s can be used to figure out current roles. And use filtered info as input to clean up current environment.
+
+It is also possible to maintain Roles with powershell.. But maybe more about that later.
