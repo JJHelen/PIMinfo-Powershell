@@ -1,17 +1,30 @@
 # PIMinfo-Powershell
 
-Two seperated powershell's 
--- one to pull out info of AzureAD PIM (priviledge identity management) roles from tenant
--- one to pull out onfo of Azure PIM  (priviledge identity management) roles from tenantroot group
+Two separated powershell's 
+-- one to pull out info of AzureAD PIM (privileged identity management) roles from Tenant
+-- one to pull out info of Azure PIM  (privileged identity management) roles from Azure Resources
 
-Code results csv files.
--- Azure AD --> one csv with all info that is collected
--- Azure --> multiple csv with all info that is collected (separated files management groups, subscriptions and resource groups. Plus seperated files direct Roles and direct+inherited roles (yes, bit overhelming..)
+Code results one or more csv files. That means some "extra info"
+-- Azure AD --> one csv with all info that is collected 
+-- Azure --> multiple csv with all info that is collected (separated files management groups, subscriptions and resource groups. Plus separated files direct Roles and direct+inherited roles (yes, bit overwhelming..)
 
 Requires Powershell AzureAD preview 2.0 (30.05.2022 - v2.0.2.149)
--- and remember becaouse it is preview it can change
+-- and remember because it is preview it can change
 
 There is still few things in code that are "under construction". So that explains few extra parameter reservations.
 
-And I know.. this code is not optimized
+And I know.. this code is not optimized + some parts of the code.. just bare with it..
 
+First of all.. dont get confused with different ID strings and names of those strings.
+
+Get-AzureADMSPrivilegedResource -ProviderId 'AzureResources'  -Filter $FindString 
+#picks up just desired resource
+
+Get-AzureADMSPrivilegedRoleAssignment -ProviderId 'AzureResources' -ResourceId $ResResource.id 
+#Gets role assignments from ResourceID from previous command -- result is mainly different ID information
+
+Get-AzureADMSPrivilegedRoleDefinition -ProviderId 'AzureResources' -ResourceId $ResResource.id -id $RoleAssign.RoleDefinitionId
+#Gets more readable Roledefinition info based on ResourceID and Roleassignment RoledefinitionId
+
+Get-AzureADObjectByObjectId -ObjectIds $RoleAssign.SubjectId
+#Gets more readable Roledefinition info from AzureAD based on Roleassignment SubjectID (AzureAD ObjectID)
