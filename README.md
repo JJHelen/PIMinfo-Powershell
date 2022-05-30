@@ -15,7 +15,17 @@ There is still few things in code that are "under construction". So that explain
 
 And I know.. this code is not optimized + some parts of the code.. just bare with it..
 
-AzureAD is bit more straight forward, but getting Roles from Azure is bit more comlicated
+
+AzureAD is bit more straightforward - And remember Privileged role assignments are unique Id:s in each azure tenant.
+
+![image](https://user-images.githubusercontent.com/57322488/170950501-e390e409-21ff-4118-a494-b4b179035011.png)
+
+
+But getting Roles from Azure is bit more comlicated
+
+![image](https://user-images.githubusercontent.com/57322488/170955949-98374cbc-8d81-403b-91aa-f58a09421746.png)
+
+
 
 First of all.. dont get confused with different ID strings and names of those strings.
 
