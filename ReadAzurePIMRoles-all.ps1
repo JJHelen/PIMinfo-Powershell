@@ -31,6 +31,9 @@ Function FindRoles{
 
 	# Loop through all RoleAssignments
 	foreach ($RoleAssign in $RoleAssignments) {
+		# Get RoleSettings 
+		$RoleSettings = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'AzureResources' -Filter "(ResourceId eq '$($ResResource.id)') and (RoledefinitionID eq '$($RoleAssign.RoleDefinitionId)')"
+
 		# Get Roleinfo
 		$Roleinfo = Get-AzureADMSPrivilegedRoleDefinition -ProviderId 'AzureResources' -ResourceId $ResResource.id -id $RoleAssign.RoleDefinitionId
 
@@ -50,8 +53,12 @@ Function FindRoles{
 			AppId_AdObjInfo = $ADObjInfo.AppId
 			StartDateTime_RoleAssign = $RoleAssign.StartDateTime
 			EndDateTime_RoleAssign = $RoleAssign.EndDateTime
+			Description_AdObjInfo = $ADObjInfo.Description
 			UserType_AdObjInfo = $ADObjInfo.UserType
 			SecurityEnabled_AdObjInfo = $ADObjInfo.SecurityEnabled
+			IsDefault_RoleSettings = $RoleSettings.IsDefault
+			LastUpdatedDateTime_RoleSettings = $RoleSettings.LastUpdatedDateTime
+			LastUpdatedBy_RoleSettings = $RoleSettings.LastUpdatedBy
 
 			Id_PrivResource = $ResResource.Id
 			ExternalId_PrivResource = $ResResource.ExternalId
@@ -80,13 +87,21 @@ Function FindRoles{
 
 			ObjectId_AdObjInfo = $ADObjInfo.ObjectId
 			DeletionTimestamp_AdObjInfo = $ADObjInfo.DeletionTimestamp
-			}
-        #Write-Host $item
+
+			Id_RoleSettings = $RoleSettings.Id
+			ResourceId_RoleSettings = $RoleSettings.ResourceId
+			RoleDefinitionId_RoleSettings = $RoleSettings.RoleDefinitionId
+			AdminEligibleSettings_RoleSettings = $RoleSettings.AdminEligibleSettings
+			AdminMemberSettings_RoleSettings = $RoleSettings.AdminMemberSettings
+			UserEligibleSettings_RoleSettings = $RoleSettings.UserEligibleSettings
+			UserMemberSettings_RoleSettings = $RoleSettings.UserMemberSettings
+		}
+	        #Write-Host $item
 		#$item >> ".\PIMRoles-$Restype-$inherfilter-$(get-date -f yyyy-MM-dd).txt"
 			
 			            
 		# Add PS Object to array
-        $PIMRoleResults += $item
+        	$PIMRoleResults += $item
 		#$PIMAllRoleResults  += $item
 	}
 	Return $PIMRoleResults
