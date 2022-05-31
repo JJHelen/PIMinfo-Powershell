@@ -91,10 +91,10 @@ Function FindRoles{
 			Id_RoleSettings = $RoleSettings.Id
 			ResourceId_RoleSettings = $RoleSettings.ResourceId
 			RoleDefinitionId_RoleSettings = $RoleSettings.RoleDefinitionId
-			AdminEligibleSettings_RoleSettings = $RoleSettings.AdminEligibleSettings
-			AdminMemberSettings_RoleSettings = $RoleSettings.AdminMemberSettings
-			UserEligibleSettings_RoleSettings = $RoleSettings.UserEligibleSettings
-			UserMemberSettings_RoleSettings = $RoleSettings.UserMemberSettings
+			AdminEligibleSettings_RoleSettings = $RoleSettings.AdminEligibleSettings -join ';' -replace '(?<!\x0d)\x0a',' '
+			AdminMemberSettings_RoleSettings = $RoleSettings.AdminMemberSettings -join ';' -replace '(?<!\x0d)\x0a',' '
+			UserEligibleSettings_RoleSettings = $RoleSettings.UserEligibleSettings -join ';' -replace '(?<!\x0d)\x0a',' '
+			UserMemberSettings_RoleSettings = $RoleSettings.UserMemberSettings -join ';' -replace '(?<!\x0d)\x0a',' '
 		}
 	        #Write-Host $item
 		#$item >> ".\PIMRoles-$Restype-$inherfilter-$(get-date -f yyyy-MM-dd).txt"
