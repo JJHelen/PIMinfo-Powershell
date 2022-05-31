@@ -47,3 +47,5 @@ First of all.. dont get confused with different ID strings and names of those st
 Resulting csv:s can be used to figure out current roles. And use filtered info as input to clean up current environment.
 
 It is also possible to maintain Roles with powershell.. But maybe more about that later.
+
+31.05.2022 Added collection of Azure RoleSettings information to ps1 file and updated Azure picture.
