@@ -23,8 +23,7 @@ AzureAD is bit more straightforward - And remember Privileged role assignments a
 
 But getting Roles from Azure is bit more comlicated
 
-![image](https://user-images.githubusercontent.com/57322488/171158417-3a6be414-7239-4a11-8105-9bc0b8ea3e41.png)
-
+![image](https://user-images.githubusercontent.com/57322488/171167935-fe7056ac-af86-4ea7-afa9-3dae9c666e1f.png)
 
 
 First of all.. dont get confused with different ID strings and names of those strings.
