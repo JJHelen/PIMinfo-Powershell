@@ -23,7 +23,7 @@ AzureAD is bit more straightforward - And remember Privileged role assignments a
 
 But getting Roles from Azure is bit more comlicated
 
-![image](https://user-images.githubusercontent.com/57322488/170955949-98374cbc-8d81-403b-91aa-f58a09421746.png)
+![image](https://user-images.githubusercontent.com/57322488/171158417-3a6be414-7239-4a11-8105-9bc0b8ea3e41.png)
 
 
 
@@ -34,6 +34,9 @@ First of all.. dont get confused with different ID strings and names of those st
 
 - Get-AzureADMSPrivilegedRoleAssignment -ProviderId 'AzureResources' -ResourceId $ResResource.id 
 #Gets role assignments from ResourceID from previous command -- result is mainly different ID information
+
+- Get-AzureADMSPrivilegedRoleSetting -ProviderId 'AzureResources' -Filter "(ResourceId eq '$($ResResource.id)') and (RoledefinitionID eq '$($RoleAssign.RoleDefinitionId)')"
+#Gets Roles Settings based on resource id and roledefinition Id
 
 - Get-AzureADMSPrivilegedRoleDefinition -ProviderId 'AzureResources' -ResourceId $ResResource.id -id $RoleAssign.RoleDefinitionId
 #Gets more readable Roledefinition info based on ResourceID and Roleassignment RoledefinitionId
