@@ -48,4 +48,4 @@ Resulting csv:s can be used to figure out current roles. And use filtered info a
 
 It is also possible to maintain Roles with powershell.. But maybe more about that later.
 
-31.05.2022 Added collection of Azure RoleSettings information to ps1 file and updated Azure picture.
+31.05.2022 Added collection of Azure RoleSettings information (still work to do to get actua settings out) and updated Azure picture.
