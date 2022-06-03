@@ -50,15 +50,14 @@ Function FindRoles{
 			ObjectType_AdObjInfo = $ADObjInfo.ObjectType
 			DisplayName_AdObjInfo = $ADObjInfo.DisplayName
 			UserPrincipalName_AdObjInfo = $ADObjInfo.UserPrincipalName
-			AppId_AdObjInfo = $ADObjInfo.AppId
 			StartDateTime_RoleAssign = $RoleAssign.StartDateTime
 			EndDateTime_RoleAssign = $RoleAssign.EndDateTime
 			Description_AdObjInfo = $ADObjInfo.Description
 			UserType_AdObjInfo = $ADObjInfo.UserType
-			SecurityEnabled_AdObjInfo = $ADObjInfo.SecurityEnabled
+			ServicePrincipalType_AdObjInfo = $ADObjInfo.ServicePrincipalType
+			AlternativeNames_AdObjInfo = $ADObjInfo.AlternativeNames -join '£' -replace '(?<!\x0d)\x0a',''
+			AppDisplayName_AdObjInfo = $ADObjInfo.AppDisplayName
 			IsDefault_RoleSettings = $RoleSettings.IsDefault
-			LastUpdatedDateTime_RoleSettings = $RoleSettings.LastUpdatedDateTime
-			LastUpdatedBy_RoleSettings = $RoleSettings.LastUpdatedBy
 
 			Id_PrivResource = $ResResource.Id
 			ExternalId_PrivResource = $ResResource.ExternalId
@@ -87,22 +86,33 @@ Function FindRoles{
 
 			ObjectId_AdObjInfo = $ADObjInfo.ObjectId
 			DeletionTimestamp_AdObjInfo = $ADObjInfo.DeletionTimestamp
+			AppId_AdObjInfo = $ADObjInfo.AppId
+			SecurityEnabled_AdObjInfo = $ADObjInfo.SecurityEnabled
 
 			Id_RoleSettings = $RoleSettings.Id
 			ResourceId_RoleSettings = $RoleSettings.ResourceId
 			RoleDefinitionId_RoleSettings = $RoleSettings.RoleDefinitionId
-			AdminEligibleSettings_RoleSettings = $RoleSettings.AdminEligibleSettings -join ';' -replace '(?<!\x0d)\x0a',' '
-			AdminMemberSettings_RoleSettings = $RoleSettings.AdminMemberSettings -join ';' -replace '(?<!\x0d)\x0a',' '
-			UserEligibleSettings_RoleSettings = $RoleSettings.UserEligibleSettings -join ';' -replace '(?<!\x0d)\x0a',' '
-			UserMemberSettings_RoleSettings = $RoleSettings.UserMemberSettings -join ';' -replace '(?<!\x0d)\x0a',' '
+			LastUpdatedDateTime_RoleSettings = $RoleSettings.LastUpdatedDateTime
+			LastUpdatedBy_RoleSettings = $RoleSettings.LastUpdatedBy
+			AdeExpirationRule_RoleSettings = $RoleSettings.AdminEligibleSettings | ForEach-Object {if ($PSItem -match 'ExpirationRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			AdeMfaRule_RoleSettings = $RoleSettings.AdminEligibleSettings | ForEach-Object {if ($PSItem -match 'MfaRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			AdeAttributeConditionRule_RoleSettings = $RoleSettings.AdminEligibleSettings | ForEach-Object {if ($PSItem -match 'AttributeConditionRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			AdmExpirationRule_RoleSettings = $RoleSettings.AdminMemberSettings | ForEach-Object {if ($PSItem -match 'ExpirationRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			AdmMfaRule_RoleSettings = $RoleSettings.AdminMemberSettings | ForEach-Object {if ($PSItem -match 'MfaRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			AdmJustificationRule_RoleSettings = $RoleSettings.AdminMemberSettings | ForEach-Object {if ($PSItem -match 'JustificationRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			AdmAttributeConditionRule_RoleSettings = $RoleSettings.AdminMemberSettings | ForEach-Object {if ($PSItem -match 'AttributeConditionRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			UseAttributeConditionRule_RoleSettings = $RoleSettings.UserEligibleSettings | ForEach-Object {if ($PSItem -match 'AttributeConditionRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			UsmExpirationRule_RoleSettings = $RoleSettings.UserMemberSettings | ForEach-Object {if ($PSItem -match 'ExpirationRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			UsmMfaRule_RoleSettings = $RoleSettings.UserMemberSettings | ForEach-Object {if ($PSItem -match 'MfaRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			UsmJustificationRule_RoleSettings = $RoleSettings.UserMemberSettings | ForEach-Object {if ($PSItem -match 'JustificationRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			UsmTicketingRule_RoleSettings = $RoleSettings.UserMemberSettings | ForEach-Object {if ($PSItem -match 'TicketingRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			UsmApprovalRule_RoleSettings = $RoleSettings.UserMemberSettings | ForEach-Object {if ($PSItem -match 'ApprovalRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			UsmAcrsRule_RoleSettings = $RoleSettings.UserMemberSettings | ForEach-Object {if ($PSItem -match ' AcrsRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
+			UsmAttributeConditionRule_RoleSettings = $RoleSettings.UserMemberSettings | ForEach-Object {if ($PSItem -match 'AttributeConditionRule'){$PSItem -replace '(?<!\x0d)\x0a','' -replace '}}','}' -replace 'class AzureADMSPrivilegedRuleSetting {  RuleIdentifier: ',''}}
 		}
-	        #Write-Host $item
-		#$item >> ".\PIMRoles-$Restype-$inherfilter-$(get-date -f yyyy-MM-dd).txt"
-			
 			            
 		# Add PS Object to array
         	$PIMRoleResults += $item
-		#$PIMAllRoleResults  += $item
 	}
 	Return $PIMRoleResults
 }
