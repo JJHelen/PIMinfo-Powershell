@@ -18,12 +18,14 @@ And I know.. this code is not optimized + some parts of the code.. just bare wit
 
 AzureAD is bit more straightforward - And remember Privileged role assignments are unique Id:s in each azure tenant.
 
-![image](https://user-images.githubusercontent.com/57322488/170950501-e390e409-21ff-4118-a494-b4b179035011.png)
+![image](https://user-images.githubusercontent.com/57322488/171827971-968c7137-7089-47e0-8c26-5dad0ba420eb.png)
+
 
 
 But getting Roles from Azure is bit more comlicated
 
-![image](https://user-images.githubusercontent.com/57322488/171167935-fe7056ac-af86-4ea7-afa9-3dae9c666e1f.png)
+![image](https://user-images.githubusercontent.com/57322488/171826454-99a6f37e-2b15-471c-bd69-3dfe0885fcf9.png)
+
 
 
 First of all.. dont get confused with different ID strings and names of those strings.
@@ -47,4 +49,5 @@ Resulting csv:s can be used to figure out current roles. And use filtered info a
 
 It is also possible to maintain Roles with powershell.. But maybe more about that later.
 
-31.05.2022 Added collection of Azure RoleSettings information (still work to do to get actua settings out) and updated Azure picture.
+31.05.2022 Added collection of Azure RoleSettings information (still work to do to get actual settings out) and updated Azure picture.
+03.06.2022 Updated Pictures and .ps1 files (updated RoleSettings info pickup and added AD objectinfo). And I did found out that RoledefinitionID is not allways same as BuiltInRBAC Id (in some cases yes it is, but at least older PIM configurations - do not trust that)
