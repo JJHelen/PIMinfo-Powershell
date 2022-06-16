@@ -19,7 +19,7 @@ PrivilegedRoleSettings Get command needs Filter, its the only way that I got it 
   - RoleSettings are List Type, the way I have extracted information gives base to build Set commands
 
 PrivilegedRoleAssignments 
-  - Activated Eligble roles have LinkedEligibleRoleAssignmentId (reference to RoleAssignmentID) to point out what is original EligbleAssignment
+  - Activated Eligible roles have LinkedEligibleRoleAssignmentId (reference to RoleAssignmentID) to point out what is original EligibleAssignment
 
 Using AzureADObjectByObjectID
   - To get more information you can get DisplayName, Description or even extract groupmembers 
