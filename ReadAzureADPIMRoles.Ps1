@@ -36,8 +36,8 @@ Function ConnectAzure {
 }
 
 
-$TenantId = ConnectAzuread
-
+$TenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+connectazuread
 
 # Set array
 $PIMAzureADRoleResults = @()
