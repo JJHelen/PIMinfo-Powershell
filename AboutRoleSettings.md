@@ -79,7 +79,8 @@ UserMember - AttributeConditionRule - (portal: ???)
   - NoChangeSaved: AttributeConditionRule  Setting: {"condition":null,"conditionVersion":null,"conditionDescription":null,"enableEnforcement":false}
 
 
-Notification settings: these can be checked / altered through Microsoft Graph (roleSettingsv2). Its not possible through API at this point.
+Notification settings: these can be checked / altered through Microsoft Graph (roleSettingsv2). Its not possible through powershell at this point.
+  
 {
     "adminEligibleSettings": [{
             "ruleIdentifier": "ExpirationRule",
@@ -87,20 +88,25 @@ Notification settings: these can be checked / altered through Microsoft Graph (r
         }, {
             "ruleIdentifier": "MfaRule",
             "setting": "{\"mfaRequired\":false}"
-        }, {
-            "ruleIdentifier": "NotificationRule",
-            "setting": "{\"policies\":[{\"deliveryMechanism\":\"email\",\"setting\":[{\"customreceivers\":null,\"isdefaultreceiverenabled\":true,\"notificationlevel\":2,\"recipienttype\":2},{\"customreceivers\":null,\"isdefaultreceiverenabled\":true,\"notificationlevel\":2,\"recipienttype\":0},{\"customreceivers\":null,\"isdefaultreceiverenabled\":true,\"notificationlevel\":2,\"recipienttype\":1}]}]}"
-        }
-\"isdefaultreceiverenabled\":true --> sends message, (false donotsend)
+        }, 
 
-\"notificationlevel\":1 --> CriticalOnly
-\"notificationlevel\":2 --> All
+{
+  "ruleIdentifier": "NotificationRule",
+  "setting": "{\"policies\":[{\"deliveryMechanism\":\"email\",\"setting\":[{\"customreceivers\":null,\"isdefaultreceiverenabled\":true,\"notificationlevel\":2,\"recipienttype\":2},{\"customreceivers\":null,\"isdefaultreceiverenabled\":true,\"notificationlevel\":2,\"recipienttype\":0},{\"customreceivers\":null,\"isdefaultreceiverenabled\":true,\"notificationlevel\":2,\"recipienttype\":1}]}]}"
 
-\"recipienttype\":2 -> Admin
-\"recipienttype\":1 -> Assignee
-\"recipienttype\":0 -> Approver
+}]
+}
 
-When part of AdminEligibleSettings  -> send notifications when members are assigned as eligible
-When part of AdminMemberSettings -> send notifications when members are assigned as active 
-When part of UserEligbleSettings -> send notifications when members activate role
+- \"isdefaultreceiverenabled\":true --> sends message, (false donotsend)
+
+- \"notificationlevel\":1 --> CriticalOnly
+- \"notificationlevel\":2 --> All
+
+- \"recipienttype\":2 -> Admin
+- \"recipienttype\":1 -> Assignee
+- \"recipienttype\":0 -> Approver
+
+- When part of AdminEligibleSettings  -> send notifications when members are assigned as eligible
+- When part of AdminMemberSettings -> send notifications when members are assigned as active 
+- When part of UserEligbleSettings -> send notifications when members activate role
 
