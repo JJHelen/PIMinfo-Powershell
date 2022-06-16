@@ -52,3 +52,5 @@ It is also possible to maintain Roles with powershell.. But maybe more about tha
 31.05.2022 Added collection of Azure RoleSettings information (still work to do to get actual settings out) and updated Azure picture.
 03.06.2022 Updated Pictures and .ps1 files (updated RoleSettings info pickup and added AD objectinfo). And I did found out that RoledefinitionID is not allways same as BuiltInRBAC Id (in some cases yes it is, but at least older PIM configurations - do not trust that).
 03.06.2022 Added ReadAzurePIMRoleSettings.ps1 to list every MG, Subscription and ResourceGroup PIMRoleSettings
+16.06.2022 changed powershells - mostly reports and how to connect (make sure you have .\done and .\latest folders )
+
