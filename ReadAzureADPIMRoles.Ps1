@@ -15,7 +15,7 @@ Function ConnectAzuread {
 	Connect-AzureAD -AccountId $aadconn
 	return $(Get-AzureADCurrentSessionInfo).TenantId
 }
-}
+
 
 Function ConnectAzure {	
 	# just to reduce azureconnectrequests
