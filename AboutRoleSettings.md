@@ -3,17 +3,17 @@ Values of PrivilegedRoleSettings (portal: "what affects setting in portal")
  - Changed: shows value if you change setting in portal (from default)
  - NoChangeSaved: shows value if you change some other setting in portal - and save.
 
-AdminEligble - ExpirationRule - (portal: assignment - eligble permanent assignment)
+AdminEligible - ExpirationRule - (portal: assignment - Eligible permanent assignment)
   - Default: ExpirationRule  Setting: {"maximumGrantPeriod":"365.00:00:00","maximumGrantPeriodInMinutes":525600,"permanentAssignment":false}
   - Changed: ExpirationRule  Setting: {"permanentAssignment":true,"maximumGrantPeriodInMinutes":525600}
   - NoChangeSaved: ExpirationRule  Setting: {"permanentAssignment":false,"maximumGrantPeriodInMinutes":525600}
 
-AdminEligble - MfaRule - (portal: ???)
+AdminEligible - MfaRule - (portal: ???)
   - Default: MfaRule  Setting: {"mfaRequired":false}
   - Changed: MfaRule  Setting: {"mfaRequired":false}
   - NoChangeSaved: MfaRule  Setting: {"mfaRequired":false}
 
-AdminEligble - AttributeConditionRule - (portal: ???)
+AdminEligible - AttributeConditionRule - (portal: ???)
   - Default: AttributeConditionRule  Setting: {"condition":null,"conditionVersion":null,"conditionDescription":null,"enableEnforcement":false}
   - Changed: AttributeConditionRule  Setting: {"condition":null,"conditionVersion":null,"conditionDescription":null,"enableEnforcement":false}
   - NoChangeSaved: AttributeConditionRule  Setting: {"condition":null,"conditionVersion":null,"conditionDescription":null,"enableEnforcement":false}
@@ -23,7 +23,7 @@ AdminMember - ExpirationRule - (portal: assignment - permanent activeassignment)
   - Changed: ExpirationRule  Setting: {"permanentAssignment":true,"maximumGrantPeriodInMinutes":259200}
   - NoChangeSaved: ExpirationRule  Setting: {"permanentAssignment":false,"maximumGrantPeriodInMinutes":259200}
 
-AdminMember - MfaRule - (portal: assignment - eligble permanent assignment)
+AdminMember - MfaRule - (portal: assignment - Eligible permanent assignment)
   - Default: MfaRule  Setting: {"mfaRequired":false}
   - Changed: MfaRule  Setting: {"mfaRequired":true}
   - NoChangeSaved: MfaRule  Setting: {"mfaRequired":false}
@@ -38,12 +38,12 @@ AdminMember - AttributeConditionRule - (portal: ???)
   - Changed: AttributeConditionRule  Setting: {"condition":null,"conditionVersion":null,"conditionDescription":null,"enableEnforcement":false}
   - NoChangeSaved: AttributeConditionRule  Setting: {"condition":null,"conditionVersion":null,"conditionDescription":null,"enableEnforcement":false}
 
-UserEligble - AttributeConditionRule - (portal: ???)
+UserEligible - AttributeConditionRule - (portal: ???)
   - Default: AttributeConditionRule  Setting: {"condition":null,"conditionVersion":null,"conditionDescription":null,"enableEnforcement":false}
   - Changed: AttributeConditionRule  Setting: {"condition":null,"conditionVersion":null,"conditionDescription":null,"enableEnforcement":false}
   - NoChangeSaved: AttributeConditionRule  Setting: {"condition":null,"conditionVersion":null,"conditionDescription":null,"enableEnforcement":false}
 
-UserMember - ExpirationRule - (portal: assignment - eligble permanent)
+UserMember - ExpirationRule - (portal: assignment - Eligible permanent)
   - Default: 
   - Changed: ExpirationRule  Setting: {"permanentAssignment":true,"maximumGrantPeriodInMinutes":480}
   - NoChangeSaved: ExpirationRule  Setting: {"permanentAssignment":false,"maximumGrantPeriodInMinutes":480}
